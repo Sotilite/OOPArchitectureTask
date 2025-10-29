@@ -40,7 +40,9 @@ public class DiscordBot {
                     if (isUser) {
                         String chatId = eventMessage.getChannelId().asString();
                         String messageFromUser = eventMessage.getContent();
-                        // TODO обработайте сообщение от пользователя (messageFromUser)
+                        ResponseManager manager = new ResponseManager();
+                        String response = manager.generateResponse(messageFromUser);
+                        sendMessage(chatId, response);
                     }
                 });
         System.out.println("Discord бот запущен");
