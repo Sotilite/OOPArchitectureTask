@@ -1,16 +1,20 @@
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import ru.urfu.ResponseManager;
 
+/**
+ * Тестирование менеджера сообщений
+ */
 public class ResponseManagerTest {
+    /**
+     * Тест генерации ответа на сообщение пользователя
+     */
     @Test
     public void generateResponseTest() {
-        String userMessage = "Привет, меня зовут Саша";
-
         ResponseManager manager = new ResponseManager();
-        String actualResponse = manager.generateResponse(userMessage);
-
-        String expectedResponse = String.format("Ваше сообщение: %s", userMessage);
-        Assert.assertEquals(expectedResponse, actualResponse);
+        Assertions.assertEquals(
+                "Ваше сообщение: Привет, меня зовут Саша",
+                manager.generateResponse("Привет, меня зовут Саша")
+        );
     }
 }

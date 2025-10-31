@@ -18,9 +18,9 @@
         <commons-codec.version>1.19.0</commons-codec.version>
         <commons-lang3.version>3.19.0</commons-lang3.version>
         <protobuf-java.version>4.33.0</protobuf-java.version>
-        <netty-handler.version>4.2.0.Final</netty-handler.version>
-        <grizzly-http.version>4.0.2</grizzly-http.version>
-        <junit.version>4.4</junit.version>
+        <reactor-netty-http.version>1.3.0-M7</reactor-netty-http.version>
+        <jackson-core.version>2.20.0</jackson-core.version>
+        <junit-jupiter.version>6.0.0</junit-jupiter.version>
     </properties>
 
     <dependencies>
@@ -37,34 +37,8 @@
         </dependency>
 
         <dependency>
-            <groupId>commons-codec</groupId>
-            <artifactId>commons-codec</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.google.protobuf</groupId>
-            <artifactId>protobuf-java</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-handler</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.glassfish.grizzly</groupId>
-            <artifactId>grizzly-http</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
         </dependency>
     </dependencies>
 
@@ -101,23 +75,23 @@
             </dependency>
 
             <dependency>
-                <groupId>io.netty</groupId>
-                <artifactId>netty-handler</artifactId>
-                <version>${netty-handler.version}</version>
+                <groupId>io.projectreactor.netty</groupId>
+                <artifactId>reactor-netty-http</artifactId>
+                <version>${reactor-netty-http.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.glassfish.grizzly</groupId>
-                <artifactId>grizzly-http</artifactId>
-                <version>${grizzly-http.version}</version>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson-core.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${junit.version}</version>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter</artifactId>
+                <version>${junit-jupiter.version}</version>
+                <scope>test</scope>
             </dependency>
-
         </dependencies>
     </dependencyManagement>
 
