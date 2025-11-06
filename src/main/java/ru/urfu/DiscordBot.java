@@ -11,13 +11,27 @@ import discord4j.core.object.entity.channel.MessageChannel;
  * Дискорд бот
  */
 public class DiscordBot {
-
+    /**
+     * Токен дискорд-бота
+     */
     private final String token;
 
+    /**
+     * Объект управления соединения с дискорд
+     */
     private GatewayDiscordClient client;
 
-    public DiscordBot(String token) {
+    /**
+     * Менеджер по обработке сообщений
+     */
+    private final ResponseManager responseManager;
+
+    /**
+     * Конструктор заполнения полей экземпляра класса
+     */
+    public DiscordBot(String token, ResponseManager responseManager) {
         this.token = token;
+        this.responseManager = responseManager;
     }
 
     /**
@@ -40,7 +54,8 @@ public class DiscordBot {
                     if (isUser) {
                         String chatId = eventMessage.getChannelId().asString();
                         String messageFromUser = eventMessage.getContent();
-                        // TODO обработайте сообщение от пользователя (messageFromUser)
+                        String response = responseManager.generateResponse(messageFromUser);
+                        sendMessage(chatId, response);
                     }
                 });
         System.out.println("Discord бот запущен");
